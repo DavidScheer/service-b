@@ -1,0 +1,22 @@
+name: Automatisches Deployment Scheer
+
+on: 
+  push:
+    branches: ["**"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: action/checkout@v2
+
+      - uses: google-github-actions/setup-gcloud@v0.2.1
+        with:
+          project_id: modern-tech-training
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          export_default_credentials: true
+      
+      - uses: google-github-actions/deploy-appengine@v0.4.0
+        with:
+          project_id: modern-tech-training
