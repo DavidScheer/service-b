@@ -20,3 +20,10 @@ jobs:
       - uses: google-github-actions/deploy-appengine@v0.4.0
         with:
           project_id: modern-tech-training
+
+      - uses: anthonyvscode/newman-action@v1
+        with:
+          collection: postman-collection.json
+          reporters: cli 
+          timeout: 10000
+          timeoutRequest: 10000
