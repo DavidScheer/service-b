@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
 
-app.get('/now', (req, res) => {
+app.get('/jetzt', (req, res) => {
   const date = new Date()
   res.send({ date })
 })
